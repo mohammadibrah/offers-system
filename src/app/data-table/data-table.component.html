@@ -1,0 +1,36 @@
+<mat-table [dataSource]="dataSource">
+
+  <!-- Define the columns -->
+  <ng-container *ngFor="let column of columnDefinitions; let i = index" [matColumnDef]="column">
+    <mat-header-cell *matHeaderCellDef>{{ columnTitles?.[i] || column}}</mat-header-cell>
+    <mat-cell *matCellDef="let item">
+      <ng-container [ngSwitch]="item[column]">
+        <ng-container *ngSwitchCase="item.imageUrl">
+          <img [src]="item.imageUrl" width="50" height="50" alt="image">
+        </ng-container>
+        <ng-container *ngSwitchCase="item.actions">
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item *ngFor="let action of item.actions" (click)="action.onClick()">
+              {{ action.label }}
+            </button>
+          </mat-menu>
+          <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_horiz</mat-icon>
+          </button>
+        </ng-container>
+        <ng-container *ngSwitchDefault>
+          {{ item[column] }}
+        </ng-container>
+      </ng-container>
+
+    </mat-cell>
+  </ng-container>
+
+  <!-- Render the header row -->
+  <mat-header-row *matHeaderRowDef="columnDefinitions"></mat-header-row>
+
+  <!-- Render the data rows -->
+  <mat-row *matRowDef="let row; columns: columnDefinitions;"></mat-row>
+
+</mat-table>
+
