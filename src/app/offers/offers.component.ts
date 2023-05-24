@@ -17,7 +17,7 @@ export class OffersComponent {
   ];
 
   updateTable(): void {
-    this.columns = ['name1', 'age1'];
+    this.columns = ['Name', 'Age', 'Options', 'Image'];
     this.products = [
       { name: 'John Doe', age: 25,  actions: [{ label: 'Edit', onClick: () => this.editRow(0) }, { label: 'Add', onClick: () => this.editRow(10) }], imageUrl: 'https://picsum.photos/200', },
       { name: 'Jane Smith', age: 30,  actions: [{ label: 'Edit', onClick: () => this.editRow(1) }], imageUrl: 'https://picsum.photos/200', },

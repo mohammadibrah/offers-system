@@ -18,6 +18,10 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatCardModule} from '@angular/material/card';
+import {MatSortModule} from '@angular/material/sort';
+
+
 
 
 
@@ -42,7 +46,9 @@ import {MatMenuModule} from '@angular/material/menu';
     MatPaginatorModule,
     MatTableModule,
     MatInputModule,
-    MatMenuModule
+    MatMenuModule,
+    MatCardModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]

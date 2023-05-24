@@ -1,2 +1,8 @@
-<button (click)="updateTable()">Update Table</button>
-<app-data-table [dataSource]="products"></app-data-table>
+<mat-card style="max-width: 50%; margin: 10px;">
+    <mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button (click)="updateTable()">Update Table</button>
+        </mat-card-actions>
+        <app-data-table [dataSource]="products" [columnTitles]="columns" [options]="{enableSorting: true}"></app-data-table>
+    </mat-card-content>
+</mat-card>
