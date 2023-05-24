@@ -2,13 +2,13 @@
 
   <!-- Define the columns -->
   <ng-container *ngFor="let column of columnDefinitions; let i = index" [matColumnDef]="column">
-    <ng-container *ngIf="enableSorting">
+    <ng-container *ngIf="enableSorting else nonSortingHeader">
       <mat-header-cell *matHeaderCellDef mat-sort-header>{{ columnTitles?.[i] || column}}</mat-header-cell>
     </ng-container>
-    <ng-container *ngIf="!enableSorting">
-      <mat-header-cell *matHeaderCellDef>{{ columnTitles?.[i] || column}}</mat-header-cell>
-    </ng-container>
-    <mat-cell *matCellDef="let item" #x >
+    <ng-template #nonSortingHeader>
+      <mat-header-cell *matHeaderCellDef>{{ columnTitles?.[i] || column }}</mat-header-cell>
+    </ng-template>
+    <mat-cell *matCellDef="let item">
       <ng-container [ngSwitch]="item[column]">
         <ng-container *ngSwitchCase="item.imageUrl">
           <img [src]="item.imageUrl" width="50" height="50" alt="image">
